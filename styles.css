@@ -1,0 +1,217 @@
+:root{
+  --bg:#0b0d12;
+  --card:#0f131c;
+  --line:rgba(255,255,255,.10);
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.65);
+  --primary:#3b82f6;
+  --danger:#ef4444;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 60% 10%, rgba(255,255,255,.06), transparent),
+              var(--bg);
+  color:var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+.hidden{ display:none !important; }
+
+.topbar{
+  padding:18px 20px;
+  border-bottom:1px solid var(--line);
+  background: rgba(0,0,0,.15);
+}
+.title{ font-size:26px; font-weight:800; letter-spacing:.02em; }
+.sub{ margin-top:6px; color:var(--muted); font-size:14px; }
+
+.container{
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  box-shadow: 0 20px 70px rgba(0,0,0,.35);
+  padding: 22px;
+}
+
+h1{ margin:0 0 16px 0; font-size:22px; }
+hr{ border:0; border-top:1px solid var(--line); margin:16px 0; }
+
+.row{ display:flex; justify-content:center; margin-top:14px; }
+.row.split{ justify-content:space-between; gap:10px; }
+
+button{
+  border:0;
+  border-radius:14px;
+  padding: 12px 16px;
+  font-weight:800;
+  cursor:pointer;
+  color:var(--text);
+  background: rgba(255,255,255,.10);
+}
+button:disabled{ opacity:.5; cursor:not-allowed; }
+
+.primary{ background: var(--primary); }
+.ghost{ background: rgba(255,255,255,.10); }
+.danger{ background: var(--danger); }
+
+.levels{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.levelBtn{
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.10);
+}
+.levelBtn.active{
+  outline: 2px solid rgba(59,130,246,.8);
+}
+.levelBtn.locked{
+  opacity:.35;
+  cursor:not-allowed;
+}
+
+.quizHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+.meta{ color:var(--muted); font-size:14px; }
+.count{ font-size:18px; font-weight:900; }
+
+.question{
+  margin: 16px 0 18px;
+  font-size: 44px;
+  text-align:center;
+  letter-spacing:.04em;
+  padding: 18px 10px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background: rgba(0,0,0,.12);
+}
+
+.answerRow{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  align-items:center;
+}
+
+.answer{
+  width: 220px;
+  font-size: 28px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.15);
+  color: var(--text);
+  text-align:center;
+}
+
+.keypad{
+  max-width: 360px;
+  margin: 14px auto 0;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.key{
+  padding: 14px 0;
+  font-size: 22px;
+  font-weight: 900;
+  border-radius: 14px;
+  background: rgba(255,255,255,.10);
+}
+.keyWide{
+  grid-column: span 1;
+}
+.small{ color:var(--muted); font-size:13px; line-height:1.5; }
+
+/* ○×表示（ここがポイント） */
+.feedback {
+  margin-top: 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  padding: 20px 16px;
+  text-align: center;
+  background: rgba(0,0,0,.18);
+
+  /* ★ 追加・変更するのはここ */
+  font-size: 96px;     /* ← まずはこれ。もっとデカくてもOK */
+  font-weight: 900;
+  line-height: 1.1;
+}
+.mark{
+  font-size: 64px;
+  font-weight: 1000;
+  line-height: 1;
+}
+.msg{
+  margin-top:10px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.feedback.ok {
+  color: #ff4d4f; /* 赤い〇 */
+}
+
+.feedback.ng {
+  color: #3b82f6; /* 青い× */
+}
+
+.scoreBox{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  margin: 10px 0 12px;
+}
+.score{ font-size: 46px; font-weight: 1000; }
+.judge{ font-size: 18px; font-weight: 900; color: var(--muted); }
+.detail{ color: var(--muted); line-height: 1.6; }
+
+.levelProgress {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* --- 正誤フィードバック表示 --- */
+#feedback {
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.2;
+}
+
+#feedback .mark {
+  font-size: 88px;
+  font-weight: 900;
+}
+
+#feedback .mark.ok {
+  color: #ff3b30; /* 赤 */
+}
+
+#feedback .mark.ng {
+  color: #007aff; /* 青 */
+}
+
+#feedback .msg {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  opacity: 0.95;
+}
