@@ -149,12 +149,12 @@ button:disabled{ opacity:.5; cursor:not-allowed; }
   background: rgba(0,0,0,.18);
 
   /* ★ 追加・変更するのはここ */
-  font-size: 96px;     /* ← まずはこれ。もっとデカくてもOK */
+  font-size: 18px;     /* ← まずはこれ。もっとデカくてもOK */
   font-weight: 900;
   line-height: 1.1;
 }
 .mark{
-  font-size: 64px;
+  font-size: 18px;
   font-weight: 1000;
   line-height: 1;
 }
